@@ -1,13 +1,17 @@
+DROP DATABASE IF EXISTS bamazon_db;
+
 CREATE DATABASE bamazon_db;
 
 USE bamazon_db;
 
 CREATE TABLE Products (
-	ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id INT NOT NULL AUTO_INCREMENT,
     product_name VARCHAR (30),
     department_name VARCHAR (30),
     price DECIMAL (13,4),
-    stock INTEGER (10)
+    stock INTEGER (10),
+    PRIMARY KEY (id)
+
 );
 
 INSERT INTO PRODUCTS (product_name, department_name, price, stock)
@@ -23,6 +27,8 @@ VALUES
     ('Orcish Helm', 'armor', 199.99, 2),
     ('Balin\'s Mithril Plate Rage', 'armor', 999.99, 1),
     ('Amulet of JavaScript', 'jewelry', 199.99, 2);
+    
+SELECT * FROM Products
     
     
     
