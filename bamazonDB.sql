@@ -25,7 +25,7 @@ VALUES
     ('Iron Mace', 'weapons', 29.99,  17),
     ('Steel Short Sword', 'weapons', 39.99, 8),
     ('Orcish Helm', 'armor', 199.99, 2),
-    ('Balin\'s Mithril Plate Rage', 'armor', 999.99, 1),
+    ('Balin\'s Mithril Plate of Rage', 'armor', 999.99, 1),
     ('Amulet of JavaScript', 'jewelry', 199.99, 2);
     
 SELECT * FROM Products
