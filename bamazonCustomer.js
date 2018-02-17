@@ -16,11 +16,8 @@ function start(){
 		}
 		console.log(data);
 		console.log('Welcome to Bamazon\'s Adventure Emporium serving all your RPG needs!')
-	})
+	
      
-
-
-
 inquirer
 .prompt([
 		{
@@ -36,20 +33,27 @@ inquirer
 		},
 ]) 
 
-.then((answer) =>{
-	var selection = answer.item;
-	var amount = Number(answer.amountToPurchase);
+.then(function(answer){
+	var purchase = answer.item;
+	var amount = answer.amountToPurchase;
+	var total = parseFloat(((data[purchase].price)*amount).toFixed(2));
 
-	if (data[selection].stock >= amount){
-		connection.query('UPDATE PRODUCTS SET ? WHERE', [
-			{stock: (data[selection].stock - amount)},
-			{id: answer.item}], function (err, result){
-				if (err) throw err,
-				console.log('Order placed succesfully! Your items will be shipped to you in 2-3 days!');
-			})
-	}
+	if(data[purchase].stock >= amount){
+		connection.query('UPDATE Products SET ? WHERE ?',[
+		{stock: (data[purchase].stock - amount)},
+		{id:answer.item}
+		], function (err, result){
+			if(err) throw err;
+			console.log('Purchase Made! Your total is $' + total.toFixed(2) + '. Your items(s) will be shipped to a location of your choice in a few days!')
+		});
+	   }
 
+	   else{
+	   	console.log('Sorry we don\'t have enough in our inventory =(');
+	   }
 })
+
+});
 
 }
 
