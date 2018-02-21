@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
+const colors = require('colors');
 TABLE ='Products';
 
 const connection = mysql.createConnection({
@@ -14,14 +15,16 @@ function start(){
 		if (error) {
 			console.error(error);
 		}
-		console.log('Welcome to Bamazon\'s Adventure Emporium serving all your RPG needs!')
+		console.log('Welcome to Bamazon\'s Adventure Emporium serving all your RPG needs!'.bold.yellow)
+		console.log('--------------------------------------------------------------------'.rainbow.bold);
 
 		for (var i = 0; i < data.length; i++) {
-			console.log(' ID ' + data[i].id + ' Item ' + data[i].product_name + ' Department ' + data[i].department_name + ' Price ' + data[i].price + ' Stock ' + data[i].stock);
+			console.log(' ID. '.blue.bold + data[i].id + ' Item '.red.bold + data[i].product_name + 
+			' Department '.cyan.bold + data[i].department_name + ' Price '.green.bold + data[i].price + ' Stock '.magenta.bold + data[i].stock);
 			
 		}
 	
-		//console.log(data);
+		
 		
      
 inquirer.prompt([
@@ -81,6 +84,7 @@ function restart(){
 
 		else{
 			console.log('Keep grinding and see us again when you level up!');
+			console.log('To our Orcish cutomers ' + ' Happy Wounding Day!'.trap)
 		}
 	});
 
