@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 const colors = require('colors');
+var colorsSafe = require('colors/safe');
 TABLE ='Products';
 
 const connection = mysql.createConnection({
@@ -19,8 +20,10 @@ function start(){
 		console.log('--------------------------------------------------------------------'.rainbow.bold);
 
 		for (var i = 0; i < data.length; i++) {
-			console.log(' ID. '.blue.bold + data[i].id + ' Item '.red.bold + data[i].product_name + 
-			' Department '.cyan.bold + data[i].department_name + ' Price '.green.bold + data[i].price + ' Stock '.magenta.bold + data[i].stock);
+			console.log(' ID. '.blue.bold + colorsSafe.green(data[i].id) + ' Item '.red.bold + colorsSafe.green(data[i].product_name) + 
+			' Department '.cyan.bold + colorsSafe.green(data[i].department_name) + 
+			' Price '.green.bold + colorsSafe.green(data[i].price) + ' Stock '.magenta.bold + colorsSafe.green(data[i].stock));
+			console.log(' ')
 			
 		}
 	
