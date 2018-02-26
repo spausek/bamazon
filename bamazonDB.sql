@@ -28,7 +28,6 @@ VALUES
     ('Balin\'s Mithril Plate of Rage', 'armor', 999.99, 1),
     ('Amulet of JavaScript', 'jewelry', 199.99, 2);
     
-SELECT * FROM Products
 
     
     

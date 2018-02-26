@@ -81,7 +81,7 @@ function restart(){
 
 	})
 	.then(function(answer){
-		if(answer.buymore){
+		if(answer.buyMore){
 			start();
 		}
 
