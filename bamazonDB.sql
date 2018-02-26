@@ -29,6 +29,7 @@ VALUES
     ('Amulet of JavaScript', 'jewelry', 199.99, 2);
     
 SELECT * FROM Products
+
     
     
     
